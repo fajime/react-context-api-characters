@@ -24,7 +24,7 @@ export enum Actions {
   }
 
 export type AppActions = 
-| { type: Actions.LIST_Characters, payload: Character[] }
+| { type: Actions.LIST_Characters, payload: { characters: Character[] } }
 | { type: Actions.SELECT_Character, payload: { id: number } };
 
 export const INITIAL_CHARACTER = {

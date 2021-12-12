@@ -5,7 +5,7 @@ import { GlobalContext } from './GlobalContext';
 import { appReducer } from './appReducer';
 import { props, Actions, INITIAL_STATE } from './../models/models';
 
-export const ContextProvider = ({children}: props ) => {
+export const ContextProvider = ({ children }: props ) => {
     const [state, dispatch] = useReducer(appReducer, INITIAL_STATE);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -16,7 +16,7 @@ export const ContextProvider = ({children}: props ) => {
     useEffect( () => {
         axios.get(`${baseUrl}/characters?limit=16`)
             .then((response) => {
-                dispatch({ type: Actions.LIST_Characters, payload: response.data});
+                dispatch({ type: Actions.LIST_Characters, payload: { characters: response.data }});
                 setLoading(false);
             })
             .catch((error) => {
@@ -27,8 +27,8 @@ export const ContextProvider = ({children}: props ) => {
             });     
     }, [baseUrl]);
 
-    const setSelected = ( id: number ): void => {
-        dispatch({ type: Actions.SELECT_Character, payload: {id}});
+    const setSelected = (id: number): void => {
+        dispatch({ type: Actions.SELECT_Character, payload: { id } });
     }
 
     return (
@@ -38,10 +38,10 @@ export const ContextProvider = ({children}: props ) => {
                 setSelected, 
                 loading 
             }}>
-            {children}
+            { children }
             <Toaster 
                 position="top-center"
-                reverseOrder={true}
+                reverseOrder={ true }
             />
         </GlobalContext.Provider>
     )
