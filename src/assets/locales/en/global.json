@@ -4,5 +4,6 @@
     "select_of_list": "You must select a character from the list !!",
     "characters": "Characters",
     "english": "English",
-    "spanish": "Spanish"
+    "spanish": "Spanish",
+    "request_error": "The request could not be processed"
 }

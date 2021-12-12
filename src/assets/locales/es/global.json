@@ -4,5 +4,6 @@
     "select_of_list": "Debe seleccionar un personaje desde la lista!!",
     "characters": "Personajes",
     "english": "Inglés",
-    "spanish": "Español"
+    "spanish": "Español",
+    "request_error": "No se ha podido procesar la petición"
 }

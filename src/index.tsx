@@ -14,7 +14,7 @@ i18next
 .use(initReactI18next)
 .init({
   interpolation: { escapeValue: false },
-  lng: 'es',
+  lng: 'en',
   resources: {
     es: { global: global_es },
     en: { global: global_en }

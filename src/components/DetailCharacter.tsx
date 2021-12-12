@@ -30,7 +30,7 @@ export const DetailCharacter = () => {
                     </div>
                 </>
             )}
-            { selected?.char_id === 0 && (
+            { (selected?.char_id === 0  || !selected) && (
                 <>
                     <p className="font-bold mb-2 text-red-800">{t('select_of_list')}</p>
                     <Link className="animate__animated animate__fadeInDown" to="/">
