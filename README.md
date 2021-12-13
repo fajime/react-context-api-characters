@@ -1,9 +1,18 @@
-## Available Scripts
+## Proceso para revision de la prueba
 
+Clonar repositorio
+### `git clone https://github.com/fajime/breaking-bad-characters.git`
+
+Instalar las dependencias
 ### `npm install`
+
+Arrancar la aplicacion
 ### `npm start`
 
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Abrir [http://localhost:3000](http://localhost:3000) en el navegador para ver la aplicación.
 
-### `npm test`
+Pruebas de integración con Cypress
+### `npm run test:open`
+
+Pruebas unitarias Jest
+### `npm run test`
