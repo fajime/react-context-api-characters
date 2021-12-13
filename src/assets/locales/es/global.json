@@ -5,5 +5,12 @@
     "characters": "Personajes",
     "english": "Inglés",
     "spanish": "Español",
-    "request_error": "No se ha podido procesar la petición"
+    "request_error": "No se ha podido procesar la petición",
+    "close": "Cerrar",
+    "name": "Nombre",
+    "portrayed":"Interpretado",
+    "nickname":"Alias",
+    "status":"Estado",
+    "birthday":"Cumpleaños",
+    "occupation":"Ocupación"
 }

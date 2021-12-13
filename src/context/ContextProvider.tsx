@@ -14,37 +14,28 @@ export const ContextProvider = ({ children }: props ) => {
     const { t } = useTranslation('global');
 
     const baseUrl: string = process.env.REACT_APP_API_URL || '';
-
-    const notifyError = () => {
-        toast(
-            (tost) => (
-                <span>
-                    {t('request_error')}
-                    <button className="ml-5 text-red-800" onClick={() => toast.dismiss(tost.id)}>Close</button>
-                </span>
-            ),
-            { icon: <VscError color="red" />, }
-        ); 
-    }
     
     useEffect( () => {
         axios.get(`${baseUrl}/characters?limit=16`)
-            .then((response) => {
-                if(!('char_id' in response.data[0])){
-                    setLoading(false);
-                    notifyError();
-                    return;
-                }
-
-                dispatch({ type: Actions.LIST_Characters, payload: { characters: response.data }});
+        .then((response) => {
+            dispatch({ type: Actions.LIST_Characters, payload: { characters: response.data }});
+            setLoading(false);
+        })
+        .catch((error) => {
+            if (error) {
                 setLoading(false);
-            })
-            .catch((error) => {
-                if (error) {
-                    setLoading(false);
-                    notifyError();
-                }
-            });     
+                toast(
+                    (tost) => (
+                        <span> {t('request_error')} 
+                            <button className="ml-5 text-red-800" onClick={() => toast.dismiss(tost.id)}>
+                                {t('close')}
+                            </button>
+                        </span>
+                    ),
+                    { icon: <VscError color="red" />, }
+                );
+            }
+        });  
     }, [baseUrl]);
 
     const setSelected = (id: number): void => {
@@ -65,7 +56,7 @@ export const ContextProvider = ({ children }: props ) => {
                 toastOptions={{
                     duration: 3000,
                     style: {
-                      minWidth: '480px',
+                      minWidth: '400px',
                     },
                   }}
             />

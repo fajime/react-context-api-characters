@@ -1,10 +1,12 @@
 export interface Character {
     char_id: number;
     name: string;
-    img: string;
-    status: string;
-    nickname: string;
     portrayed: string;
+    img: string;
+    nickname: string;
+    status: string;
+    birthday: string;
+    occupation: string[];
 }
 
 export interface ContextProps {
@@ -27,18 +29,9 @@ export type AppActions =
 | { type: Actions.LIST_Characters, payload: { characters: Character[] } }
 | { type: Actions.SELECT_Character, payload: { id: number } };
 
-export const INITIAL_CHARACTER = {
-    char_id: 0,
-    name: '',
-    img: '',
-    status: '',
-    nickname: '',
-    portrayed: ''
-}
-
 export const INITIAL_STATE = {
     characters: [],
-    selected: INITIAL_CHARACTER,
+    selected: undefined,
     setSelected: (id: number) => {},
     loading: true
 }

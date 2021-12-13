@@ -5,5 +5,13 @@
     "characters": "Characters",
     "english": "English",
     "spanish": "Spanish",
-    "request_error": "The request could not be processed"
+    "request_error": "The request could not be processed",
+    "close": "Close",
+    "name": "Name",
+    "portrayed":"Portrayed",
+    "nickname":"Nickname",
+    "status":"Status",
+    "birthday":"Birthday",
+    "occupation":"Occupation"
 }
+
