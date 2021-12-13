@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import 'animate.css';
@@ -7,7 +7,7 @@ import { GlobalContext } from './../context/GlobalContext';
 
 export const DetailCharacter = () => {
 
-    const { selected } = useContext(GlobalContext);
+    const { selected, randomSentence } = useContext(GlobalContext);
     const { t } = useTranslation('global');
 
     return (
@@ -19,6 +19,8 @@ export const DetailCharacter = () => {
                             <span>{t('back')}</span>
                         </button>
                     </Link>
+                    { randomSentence !== '' && <div className='italic font-bold mb-2 text-white-500 animate__animated animate__bounceInDown animate__delay-1s'>{ randomSentence }</div>}
+                    { randomSentence === '' && <div className='italic font-bold mb-2 text-red-500 animate__animated animate__bounceInDown animate__delay-1s'>{t('sentences_empty')}</div>}  
                     <div className="flex flex-wrap justify-center animate__animated animate__zoomInDown">
                         <div className="bg-gray-900 p-10">
                             <div className="mb-5">
@@ -26,7 +28,7 @@ export const DetailCharacter = () => {
                             </div>
                         </div>
                         <div className="bg-gray-900 pt-10 pr-10">
-                            <p className="font-bold mb-2">
+                            <p className="font-bold mb-2" data-test="name">
                                 <span className="font-normal mb-2">{t('name')}: </span>
                                 {selected.name}
                             </p>

@@ -13,6 +13,7 @@ export interface ContextProps {
     characters: Character[];
     selected: Character | undefined;
     setSelected(id: number): void;
+    randomSentence: string | undefined;
     loading: boolean;
 }
 
@@ -33,6 +34,7 @@ export const INITIAL_STATE = {
     characters: [],
     selected: undefined,
     setSelected: (id: number) => {},
+    randomSentence: '',
     loading: true
 }
 

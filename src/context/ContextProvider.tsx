@@ -8,9 +8,10 @@ import { appReducer } from './appReducer';
 import { props, Actions, INITIAL_STATE } from './../models/models';
 
 export const ContextProvider = ({ children }: props ) => {
-    const [state, dispatch] = useReducer(appReducer, INITIAL_STATE);
+    const [ state, dispatch ] = useReducer(appReducer, INITIAL_STATE);
     const { characters, selected } = state;
-    const [loading, setLoading] = useState<boolean>(true);
+    const [ loading, setLoading ] = useState<boolean>(true);
+    const [ randomSentence, setSentence ] = useState<string>('');
     const { t } = useTranslation('global');
 
     const baseUrl: string = process.env.REACT_APP_API_URL || '';
@@ -40,13 +41,33 @@ export const ContextProvider = ({ children }: props ) => {
 
     const setSelected = (id: number): void => {
         dispatch({ type: Actions.SELECT_Character, payload: { id } });
+
+        const authorSelected = state.characters.find( (character) => character.char_id === id );
+        let authorName = authorSelected?.name.split(' ');
+        const author = authorName?.join('+');
+        selectRandomSentence(author);
+    }
+
+    const selectRandomSentence = (author: string | undefined ): void => {
+        axios.get(`${baseUrl}/quote?author=${author}`)
+        .then((response) => {
+            const sentence = response.data[Math.floor(Math.random() * response.data.length)];
+            setSentence(sentence.quote);
+        })
+        .catch((error) => {
+            if (error) {
+                setLoading(false);
+                setSentence('');
+            }
+        });
     }
 
     return (
         <GlobalContext.Provider value={{
                 characters: characters, 
                 selected: selected, 
-                setSelected, 
+                setSelected,
+                randomSentence,
                 loading 
             }}>
             { children }

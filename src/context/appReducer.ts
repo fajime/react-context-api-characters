@@ -1,7 +1,6 @@
 import { ContextProps, Character, AppActions, Actions } from '../models/models';
 
 export const appReducer = (state: ContextProps, action: AppActions): ContextProps => {
-
     switch (action.type) {
         case Actions.LIST_Characters:
             return {

@@ -13,12 +13,12 @@ export const Heading = () => {
     return (
         <>
             <div className="item-center text-gray-900 font-bold mb-10">
-            <select defaultValue={ selectedLang } onChange={handleLanguage} >
-                <option value="es">{ t('spanish') }</option>
-                <option value="en">{ t('english') }</option>
+            <select data-test="language" defaultValue={ selectedLang } onChange={handleLanguage} >
+                <option data-text="es" value="es">{ t('spanish') }</option>
+                <option data-text="en" value="en">{ t('english') }</option>
             </select>
             </div>
-            <div className="item-center text-gray-100 font-bold mb-10 text-3xl">
+            <div data-test="title-page" className="item-center text-gray-100 font-bold mb-10 text-3xl">
                 Breaking Bad {t('characters')}
             </div>
         </>

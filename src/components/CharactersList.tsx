@@ -25,7 +25,8 @@ export const CharactersList = () => {
                             <Link 
                                 to="detail" 
                                 onClick={() => handleSelected( character.char_id )} 
-                                key={character.char_id} 
+                                key={character.char_id}
+                                data-test={character.char_id}
                                 className="bg-gray-900 px-5 w-1/5 py-5 text-white shadow-2x1 m-4 animate__animated animate__fadeInUp"> 
                                     <div className="bg-gray-900 mb-5">
                                         <img src={character.img} title={character.name} alt={character.name} className="object-contain h-48 w-96" />

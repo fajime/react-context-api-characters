@@ -6,6 +6,7 @@
     "english": "Inglés",
     "spanish": "Español",
     "request_error": "No se ha podido procesar la petición",
+    "sentences_empty": "El personaje no tiene frases célebres",
     "close": "Cerrar",
     "name": "Nombre",
     "portrayed":"Interpretado",
