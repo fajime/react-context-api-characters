@@ -1,4 +1,3 @@
-## Proceso para revision de la prueba
 
 Clonar repositorio
 ### `git clone https://github.com/fajime/breaking-bad-characters.git`
